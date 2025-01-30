@@ -30,6 +30,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Join Client-1 to your domain
 - Setup Remote Desktop for non-administrative users
 - Create a bunch of additional users and attempt to log into client-1
+- Deal with Account Lockouts 
 
 <h2>Deployment and Configuration Steps</h2>
 
@@ -62,11 +63,7 @@ Create a Virtual Network and Subnet Create the Domain Controller VM (Windows Ser
 </p>
 <br />
 
-
-
-<p>
-  
-
+![image](https://github.com/user-attachments/assets/af8da180-acff-43e9-9e4e-f8c4e1bca6dc)
 
 </p>
 <p>
@@ -76,7 +73,13 @@ Create a Virtual Network and Subnet Create the Domain Controller VM (Windows Ser
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  
+![image](https://github.com/user-attachments/assets/68b71b57-725a-44c3-afc3-bcc776cc7be0)
+
+![image](https://github.com/user-attachments/assets/56b4e548-60f2-4e5e-bd58-ce2a8a479ce8)
+
+ ![image](https://github.com/user-attachments/assets/b7b8f4e8-c092-43d9-9e58-a2954f94e03f)
+ 
 </p>
 <p>
 #4 Join Client-1 to your domain and Setup Remote Desktop for non-administrative users (mydomain.com)Login to Client-1 as the original local  admin (labuser) and join it to the domain (computer will restart) Login to the Domain Controller and verify Client-1 shows up in ADUC Create a new OU named “_CLIENTS” and drag Client-1 into there on Client-1 Log into Client-1 as mydomain.com\jane_admin Open system properties Click “Remote Desktop” Allow “domain users” access to remote desktopYou can now log into Client-1 as a normal, non-administrative user nowNormally you’d want to do this with Group Policy that allows you to change MANY systems at once (maybe a future lab)
@@ -84,16 +87,27 @@ Create a Virtual Network and Subnet Create the Domain Controller VM (Windows Ser
 </p>
 <br />
 
+![image](https://github.com/user-attachments/assets/1b7b0e2c-6e6e-4afb-a4b3-ab601c7f3b3d)
 
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+![image](https://github.com/user-attachments/assets/8abc83bf-925a-4d00-ac21-2c4fff043106)
+
+
 </p>
 <p>
-#5 Create a bunch of additional users and attempt to log into client-1 with one of the users Login to DC-1 as jane_admin Open PowerShell_ise as an administrator Create a new File and paste the contents of the script into it Run the script and observe the accounts being created When finished, open ADUC and observe the accounts in the appropriate OU　(_EMPLOYEES) attempt to log into Client-1 with one of the accounts (take note of the password in the script)
-
+#5 Create a bunch of additional users and attempt to log into client-1 with one of the users Login to DC-1 as jane_admin Open PowerShell_ise as an administrator Create a new File and paste the contents of the script into it Run the script and observe the accounts being created. When finished, open ADUC and observe the accounts in the _EMPLOYEE section. I chose a random user named "bale.celu" and attempted to log into Client-1 with the account. 
 </p>
 <br />
 
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+![image](https://github.com/user-attachments/assets/c5070dce-84ce-43ad-9167-98072bf7ccbe)
+
+![image](https://github.com/user-attachments/assets/d22a9b17-5ee0-4da1-a12e-0365c0524fb3)
+
+![image](https://github.com/user-attachments/assets/6a2e016a-6e0a-4476-b854-55e5209fc3e6)
+
+![image](https://github.com/user-attachments/assets/79b68485-5f67-465c-aeaf-906dc8b266ab)
+
+![image](https://github.com/user-attachments/assets/1e889d38-d3fb-4d6c-9103-6858fec2474d)
+
 </p>
 <p>
 #6 Dealing with Account Lockouts Get logged into dc-1 Pick a random user account you created previously Attempt to log in with it 10 times with a bad password Configure Group Policy to Lockout the account after 5 attempts: How To Configure Account Lockout Threshold in Group Policy Attempt to log in with it 6 times with a bad password Observe that the account has been locked out within Active Directory Unlock the account Reset the password Attempt to login with it Enabling and Disabling Accounts Disable the same account in Active Directory Attempt to login with it, observe the error message Re-enable the account and attempt to login with it. Observing Logs Observe the logs in the Domain Controller Observe the logs on the client Machine
