@@ -35,10 +35,13 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Deployment and Configuration Steps</h2>
 
 <p>
+(Image #1)
   
 ![image](https://github.com/user-attachments/assets/502d742d-6ff2-45fe-8b00-785abc3f9d12)
+(Image #2)
 
 ![image](https://github.com/user-attachments/assets/bc85416f-c99a-4081-812c-ecd5d6d28226)
+(Image #3)
 
 ![image](https://github.com/user-attachments/assets/2cf93d4f-9e2d-4bea-93f9-c189b29e3bc9)
 
@@ -51,8 +54,10 @@ Create a Virtual Network and Subnet Create the Domain Controller VM (Windows Ser
 
 </p>
 <br />
+(Image #1)
 
 ![image](https://github.com/user-attachments/assets/d93b7b4e-fd06-4be3-a0af-f446a5dbf8c8)
+(Image #2)
 
 ![image](https://github.com/user-attachments/assets/49c30d4a-2eed-45bf-89bd-0f830e924e71)
 
@@ -62,6 +67,7 @@ Create a Virtual Network and Subnet Create the Domain Controller VM (Windows Ser
 
 </p>
 <br />
+(Image #1)
 
 ![image](https://github.com/user-attachments/assets/af8da180-acff-43e9-9e4e-f8c4e1bca6dc)
 
@@ -73,10 +79,13 @@ Create a Virtual Network and Subnet Create the Domain Controller VM (Windows Ser
 <br />
 
 <p>
+(Image #1)
   
 ![image](https://github.com/user-attachments/assets/68b71b57-725a-44c3-afc3-bcc776cc7be0)
+(Image #2)
 
 ![image](https://github.com/user-attachments/assets/56b4e548-60f2-4e5e-bd58-ce2a8a479ce8)
+(Image #3)
 
  ![image](https://github.com/user-attachments/assets/b7b8f4e8-c092-43d9-9e58-a2954f94e03f)
  
@@ -86,8 +95,10 @@ Create a Virtual Network and Subnet Create the Domain Controller VM (Windows Ser
 
 </p>
 <br />
+(Image #1)
 
 ![image](https://github.com/user-attachments/assets/1b7b0e2c-6e6e-4afb-a4b3-ab601c7f3b3d)
+(Image #2)
 
 ![image](https://github.com/user-attachments/assets/8abc83bf-925a-4d00-ac21-2c4fff043106)
 
@@ -97,14 +108,19 @@ Create a Virtual Network and Subnet Create the Domain Controller VM (Windows Ser
 #5 Create a bunch of additional users and attempt to log into client-1 with one of the users Login to DC-1 as jane_admin Open PowerShell_ise as an administrator Create a new File and paste the contents of the script into it Run the script and observe the accounts being created. When finished, open ADUC and observe the accounts in the _EMPLOYEE section. I chose a random user named "bale.celu" and attempted to log into Client-1 with the account. 
 </p>
 <br />
+(Image #1)
 
 ![image](https://github.com/user-attachments/assets/c5070dce-84ce-43ad-9167-98072bf7ccbe)
+(Image #2)
 
 ![image](https://github.com/user-attachments/assets/d22a9b17-5ee0-4da1-a12e-0365c0524fb3)
+(Image #3)
 
 ![image](https://github.com/user-attachments/assets/6a2e016a-6e0a-4476-b854-55e5209fc3e6)
+(Image #4)
 
 ![image](https://github.com/user-attachments/assets/79b68485-5f67-465c-aeaf-906dc8b266ab)
+(Image #5)
 
 ![image](https://github.com/user-attachments/assets/1e889d38-d3fb-4d6c-9103-6858fec2474d)
 
