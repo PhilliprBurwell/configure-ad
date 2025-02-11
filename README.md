@@ -48,7 +48,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 </p>
 <p>
-#1 Setup Domain Controller & Client-1 in AzureCreate a Resource Group - Create a Virtual Network and Subnet.  Create the Domain Controller VM (Windows Server 2022) named “DC-1” Username: labuser Password: Cyberlab123! After VM is created, set Domain Controller’s NIC Private IP address to be static.Log into the VM and disable the Windows Firewall. Create the Client VM (Windows 10) named “Client-1”Username: labuser Password: Cyberlab123! Attach it to the same region and Virtual Network as DC-1 After VM is created, set Client-1’s DNS settings to DC-1’s Private IP address From the Azure Portal. Set it from the virtual netwrok to the custom private ip which is now 10.0.0.4. restart Client-1 Login to Client-1 Attempt to ping DC-1’s private IP address Ensure the ping succeeded From Client-1, open PowerShell and run ipconfig /allThe output for the DNS settings should show DC-1’s private IP Address.
+#1 Setup Domain Controller & Client-1 in Azure Create a Resource Group - Create a Virtual Network and Subnet.  Create the Domain Controller VM (Windows Server 2022) named “DC-1”. Make the username labuser and the password Cyberlab123!. After the VM is created, set the Domain Controller’s NIC Private IP address to be static. Log into the VM and disable the Windows Firewall. Create the Client VM (Windows 10) named “Client-1”Username: labuser Password: Cyberlab123! Attach it to the same region and Virtual Network as DC-1 After VM is created, set Client-1’s DNS settings to DC-1’s Private IP address From the Azure Portal. Set it from the virtual network to the custom private ip which is now 10.0.0.4. Restart Client-1 then login to Client-1. Attempt to ping DC-1’s private IP address Ensure the ping succeeded From Client-1, open PowerShell and run ipconfig /allThe output for the DNS settings should show DC-1’s private IP Address.
 
 
 </p>
@@ -72,7 +72,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 </p>
 <p>
-#3 Create a Domain Admin user within the domain -  In Active Directory Users and Computers create an Organizational Unit called “_EMPLOYEES”. Then Create a new OU named “_ADMINS”. Create a new employee named “Jane Doe” make sure it is the same password with the username of “phil_admin” / Cyberlab123!. Then add jane_admin to the “Domain Admins” Security Group Log out / close the connection to DC-1 and log back in as “mydomain.com\phil_admin” User phil_admin as your admin account from now on. 
+#3 Create a Domain Admin user within the domain -  In Active Directory Users and Computers create an Organizational Unit called “_EMPLOYEES”. Then Create a new OU named “_ADMINS”. Create a new employee named “Jane Doe” make sure it is the same password with the username of “phil_admin” / Cyberlab123!. Then add jane_admin to the “Domain Admins” Security Group.  Log out of DC-1 and log back in as “mydomain.com\phil_admin” User phil_admin as your admin account from now on. 
 
 </p>
 <br />
@@ -90,7 +90,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
  
 </p>
 <p>
-#4 Join Client-1 to your domain and Setup Remote Desktop - Login to Client-1 as the original local  admin (labuser) and join it to the domain (computer will restart). Login to the Domain Controller and verify Client-1 shows up in ADUC Create a new OU named “_CLIENTS” and drag Client-1 into there on Client-1.  Log into Client-1 as mydomain.com\jane_admin. Open system properties and click “Remote Desktop” and allow “domain users” access to remote desktopYou can now log into Client-1 as a normal, non-administrative user now. 
+#4 Join Client-1 to your domain and Setup Remote Desktop - Login to Client-1 as the original local  admin (labuser) and join it to the domain (computer will restart). Login to the Domain Controller and verify Client-1 shows up in ADUC Create a new OU named “_CLIENTS” and drag Client-1. Log into Client-1 as mydomain.com\jane_admin. Open system properties and click “Remote Desktop” and allow “domain users” access to remote desktopYou can now log into Client-1 as a normal, non-administrative user now. 
 
 </p>
 <br />
@@ -125,6 +125,6 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 </p>
 <p>
-#6 Dealing with Account Lockouts - Get logged into dc-1 and pick a random user account you created previously. Attempt to log in with it 10 times with a bad password. Observe that the account has been locked out within Active Directory as admin. Search up the user by clicking users > find... The type in the user that is locked out. Right click the user and click " Reset Password". After that attempt to login with it. Then go back as admin and Disable the same account in Active Directory. Right click the user and click " Disable Account". Attempt to login with it going back to the user. Observe the error message. Go back as admin and re-enable the account and attempt to login with it. Lastly we are going to observe the logs in the Domain Controller. Go into event viewer by searching up the client Machine and we see the activity when the accsess was denied and when we logged into the account.
+#6 Dealing with Account Lockouts - Get logged into dc-1 and pick a random user account you created previously. Attempt to log in with it 10 times with a bad password. Observe that the account has been locked out within Active Directory as admin. Search up the user by clicking users > find... Then type in the user that is locked out. Right click the user and click " Reset Password". After that attempt to login with it. Then go back as admin and disable the same account in Active Directory. Right click the user and click " Disable Account". Attempt to login with it going back to the user. Observe the error message. Go back as admin and re-enable the account and attempt to login with it. Lastly we are going to observe the logs in the Domain Controller. Go into event viewer by searching up the client Machine and we see the activity when the access was denied and when we logged into the account.
 
 
